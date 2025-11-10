@@ -6,24 +6,14 @@ import { Award } from 'lucide-react';
 const Certificates = () => {
   const certificates = [
     {
+      title: 'Frontend Development',
+      issuer: 'Coming Soon',
+      icon: '🎨',
+    },
+    {
       title: 'Full-Stack Development',
       issuer: 'Coming Soon',
       icon: '🎓',
-    },
-    {
-      title: 'React Advanced Concepts',
-      issuer: 'Coming Soon',
-      icon: '⚛️',
-    },
-    {
-      title: 'Node.js Backend Development',
-      issuer: 'Coming Soon',
-      icon: '🟢',
-    },
-    {
-      title: 'Cloud Computing',
-      issuer: 'Coming Soon',
-      icon: '☁️',
     },
   ];
 
@@ -46,7 +36,7 @@ const Certificates = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.title}
