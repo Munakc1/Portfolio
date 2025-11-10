@@ -7,8 +7,9 @@ const Certificates = () => {
   const certificates = [
     {
       title: 'Frontend Development',
-      issuer: 'Coming Soon',
+      issuer: 'Lacespace',
       icon: '🎨',
+      image: '/Certificate.jpg', // your real certificate image
     },
     {
       title: 'Full-Stack Development',
@@ -20,6 +21,7 @@ const Certificates = () => {
   return (
     <section id="certificates" className="section-padding bg-muted/30">
       <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,6 +38,7 @@ const Certificates = () => {
           </p>
         </motion.div>
 
+        {/* Certificates Grid */}
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {certificates.map((cert, index) => (
             <motion.div
@@ -51,7 +54,23 @@ const Certificates = () => {
                   <div className="text-6xl mb-4">{cert.icon}</div>
                   <h3 className="text-lg font-bold mb-2">{cert.title}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{cert.issuer}</p>
-                  <Award className="text-primary mx-auto" size={24} />
+
+                  {/* Certificate Image */}
+                  {cert.image && (
+                    <a
+                      href={cert.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        className="rounded-xl mx-auto mt-4 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+                      />
+                    </a>
+                  )}
+
+                  <Award className="text-primary mx-auto mt-4" size={24} />
                 </CardContent>
               </Card>
             </motion.div>
