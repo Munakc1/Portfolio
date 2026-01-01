@@ -34,13 +34,18 @@ const Navbar = () => {
     }
   };
 
+  // Dynamic color based on theme
+  const linkColor = theme === 'dark' ? '#ffffff' : '#181715';
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-card shadow-lg' : 'bg-transparent'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'glass-card shadow-lg' : 'bg-transparent'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          
           {/* Logo */}
           <a
             href="#home"
@@ -53,11 +58,10 @@ const Navbar = () => {
             <img
               src="/logo.png"
               alt="Muna K.C. Logo"
-              className="h-12 w-15 rounded-full object-cover"
+              className="h-12 w-12 rounded-full object-cover"
             />
-            <span className="text-2xl font-bold gradient-text"></span>
+           
           </a>
-
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -69,11 +73,13 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+                style={{ color: linkColor }}
+                className="font-medium hover:opacity-80 transition-all duration-300"
               >
                 {item.label}
               </a>
             ))}
+            
             <Button
               variant="outline"
               size="sm"
@@ -82,6 +88,7 @@ const Navbar = () => {
             >
               Resume
             </Button>
+
             <Button
               variant="ghost"
               size="icon"
@@ -102,6 +109,7 @@ const Navbar = () => {
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
+
             <Button
               variant="ghost"
               size="icon"
@@ -125,15 +133,17 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary hover:bg-muted transition-colors"
+                style={{ color: linkColor }}
+                className="block px-3 py-2 rounded-md text-base font-medium hover:opacity-80 transition-all"
               >
                 {item.label}
               </a>
             ))}
+
             <Button
               variant="outline"
-              className="w-full mt-2"
-              onClick={() => window.open('/resume.pdf', '_blank')}
+              className="w-full mt-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              onClick={() => window.open('/Resume.pdf', '_blank')}
             >
               Download Resume
             </Button>
