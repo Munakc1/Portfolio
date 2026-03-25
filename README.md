@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Muna K C Portfolio
 Showcasing my projects, skills, and experience as a web developer.
 
@@ -53,3 +54,6 @@ npm install
 
 # Start development server
 npm run dev
+=======
+# Portfolio
+>>>>>>> 2fda2d211b8af6a229040fa8cf9aac611709efad
