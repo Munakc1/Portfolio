@@ -2,85 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Light mode colors */
-    --background: 195 100% 95%;  /* #CAF0F8 - Light Background */
-    --foreground: 215 25% 18%;   /* #1E293B - Text Color */
+    --background: 0 0% 100%;
+    --foreground: 230 25% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 18%;
+    --card-foreground: 230 25% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 18%;
+    --popover-foreground: 230 25% 18%;
 
-    --primary: 196 100% 36%;     /* #0077B6 - Primary Blue */
+    --primary: 245 58% 51%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 55% 58%;    /* #5FA8D3 - Mid Blue */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 240 30% 96%;
+    --secondary-foreground: 230 25% 18%;
 
-    --muted: 195 100% 95%;
-    --muted-foreground: 215 25% 45%;
+    --muted: 240 20% 96%;
+    --muted-foreground: 230 15% 45%;
 
-    --accent: 151 36% 45%;       /* #4C956C - Accent Green */
+    --accent: 245 58% 51%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 55% 85%;
-    --input: 200 55% 85%;
-    --ring: 196 100% 36%;
+    --border: 240 10% 90%;
+    --input: 240 10% 90%;
+    --ring: 245 58% 51%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
-    /* Custom variables for portfolio */
-    --hero-gradient-start: 196 100% 36%;
-    --hero-gradient-end: 195 100% 85%;
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 0 0% 100% / 0.2;
+    --hero-bg: 245 50% 28%;
+    --hero-overlay: 245 50% 22%;
+    --section-alt: 240 20% 97%;
   }
 
   .dark {
-    /* Dark mode colors */
-    --background: 220 60% 6%;    /* #0F172A - Dark Mode Background */
+    --background: 230 30% 10%;
     --foreground: 0 0% 95%;
 
-    --card: 220 60% 8%;
+    --card: 230 30% 13%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 220 60% 8%;
+    --popover: 230 30% 13%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 196 100% 50%;     /* Lighter primary for dark mode */
-    --primary-foreground: 220 60% 6%;
+    --primary: 245 58% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 55% 45%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 230 30% 18%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 60% 12%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 230 30% 15%;
+    --muted-foreground: 230 15% 60%;
 
-    --accent: 151 36% 55%;
-    --accent-foreground: 220 60% 6%;
+    --accent: 245 58% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 50%;
+    --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 60% 15%;
-    --input: 220 60% 15%;
-    --ring: 196 100% 50%;
+    --border: 230 30% 20%;
+    --input: 230 30% 20%;
+    --ring: 245 58% 60%;
 
-    /* Custom dark mode variables */
-    --hero-gradient-start: 196 100% 25%;
-    --hero-gradient-end: 220 60% 10%;
-    --glass-bg: 220 60% 12% / 0.7;
-    --glass-border: 0 0% 100% / 0.1;
+    --hero-bg: 245 50% 20%;
+    --hero-overlay: 245 50% 15%;
+    --section-alt: 230 30% 12%;
   }
 }
 
@@ -101,14 +91,24 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glass-card {
-    @apply backdrop-blur-lg bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700/20 shadow-xl;
+    @apply backdrop-blur-lg border shadow-xl;
+    background: hsl(var(--card) / 0.8);
+    border-color: hsl(var(--border) / 0.3);
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-[hsl(280,60%,60%)] bg-clip-text text-transparent;
   }
 
   .section-padding {
-    @apply py-20 px-4 md:px-8 lg:px-16;
+    @apply py-24 px-4 md:px-8 lg:px-16;
+  }
+
+  .section-alt {
+    background: hsl(var(--section-alt));
+  }
+
+  .hero-bg {
+    background: linear-gradient(135deg, hsl(var(--hero-bg)), hsl(var(--hero-overlay)));
   }
 }
