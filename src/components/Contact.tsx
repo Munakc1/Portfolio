@@ -112,37 +112,26 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="flex items-center"
           >
-            <div className="bg-card border border-border rounded-lg p-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-semibold mb-1.5 uppercase tracking-wider">Name</label>
-                    <Input id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-semibold mb-1.5 uppercase tracking-wider">Email</label>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="your@email.com" />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-xs font-semibold mb-1.5 uppercase tracking-wider">Subject</label>
-                  <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} required placeholder="Project Inquiry" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-xs font-semibold mb-1.5 uppercase tracking-wider">Message</label>
-                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} required placeholder="Tell me about your project..." rows={5} className="resize-none" />
-                </div>
-                <Button type="submit" disabled={isSubmitting} className="w-full py-5">
-                  {isSubmitting ? 'Sending...' : (<><Send size={16} className="mr-2" /> Send Message</>)}
-                </Button>
-              </form>
+            <div className="bg-card border border-border rounded-lg p-8 w-full text-center">
+              <h3 className="text-xl font-bold mb-3">Let's Work Together</h3>
+              <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                I'm always open to new opportunities and collaborations. Feel free to reach out via email or connect with me on social media.
+              </p>
+              <a
+                href="mailto:kcm02051@gmail.com"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              >
+                <Mail size={18} />
+                Email Me Directly
+              </a>
             </div>
           </motion.div>
         </div>

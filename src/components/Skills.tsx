@@ -14,16 +14,19 @@ const Skills = () => {
       ],
     },
     {
-      category: 'Backend',
+      category: 'Backend & Java',
       skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express.js', level: 85 },
-        { name: 'RESTful APIs', level: 90 },
+        { name: 'Core Java & OOP', level: 85 },
+        { name: 'Spring Boot (REST, MVC, Security)', level: 80 },
+        { name: 'Hibernate / JPA', level: 78 },
+        { name: 'JDBC, Servlets & JSP', level: 75 },
+        { name: 'Node.js & Express.js', level: 85 },
       ],
     },
     {
       category: 'Database',
       skills: [
+        { name: 'PostgreSQL', level: 85 },
         { name: 'MongoDB', level: 80 },
         { name: 'MySQL', level: 85 },
         { name: 'DBMS Concepts', level: 85 },
@@ -33,9 +36,10 @@ const Skills = () => {
       category: 'Programming & Tools',
       skills: [
         { name: 'C & C++', level: 75 },
-        { name: 'Data Structures', level: 80 },
+        { name: 'Data Structures & Algorithms', level: 80 },
         { name: 'Git & GitHub', level: 90 },
-        { name: 'Responsive Design', level: 95 },
+        { name: 'RESTful API Design', level: 90 },
+        { name: 'Real-World Project Building', level: 85 },
       ],
     },
   ];
