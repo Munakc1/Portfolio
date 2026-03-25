@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, ChevronRight } from 'lucide-react';
+import { Github, Linkedin, ChevronRight, Facebook } from 'lucide-react';
+import { FaWhatsapp } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -26,7 +27,7 @@ const Hero = () => {
         >
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white/30 overflow-hidden shadow-2xl">
             <img
-              src="/logo.png"
+              src="/muna.jpeg"
               alt="Muna K.C."
               className="w-full h-full object-cover"
             />
@@ -67,6 +68,24 @@ const Hero = () => {
               className="text-white/70 hover:text-white transition-colors"
             >
               <Linkedin size={22} />
+            </a>
+
+            <a
+              href="https://www.facebook.com/muna.kc.6832"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+            >
+              <Facebook size={22} />
+            </a>
+
+            <a
+              href="https://wa.me/9822927970"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+            >
+              <FaWhatsapp size={22} />
             </a>
           </div>
         </motion.div>

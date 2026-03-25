@@ -1,17 +1,28 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
-
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'kcm02051@gmail.com', link: 'mailto:kcm02051@gmail.com' },
-    { icon: Phone, label: 'Phone', value: '9822927970', link: 'tel:9822927970' },
-    { icon: MapPin, label: 'Location', value: 'Sorhakhutte, Kathmandu', link: null },
+    { icon: Mail, label: "Email", value: "kcm02051@gmail.com", link: "mailto:kcm02051@gmail.com" },
+    { icon: Phone, label: "Phone", value: "9822927970", link: "tel:9822927970" },
+    { icon: MapPin, label: "Location", value: "Sorhakhutte, Kathmandu", link: null },
+  ];
+
+  const socialLinks = [
+    { icon: Github, link: "https://github.com/Munakc1" },
+    { icon: Linkedin, link: "https://linkedin.com/in/muna-k-c-0739a9283" },
+    { icon: Facebook, link: "https://facebook.com/muna.k.c.1" },
+    { icon: FaWhatsapp, link: "https://wa.me/9779822927970" },
   ];
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -20,99 +31,89 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-2">
-            <span className="text-primary">GET IN</span> TOUCH
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Let's <span className="text-primary">Work Together</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto mt-4">
-            Have a project in mind? Feel free to reach out!
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 rounded"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            I'm always open to new opportunities and collaborations. Feel free to reach out via email or connect with me on social media.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
+        <div className="grid md:grid-cols-2 gap-12">
+
+          {/* LEFT SIDE - Contact Info + Socials */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-5"
+            className="space-y-6"
           >
-            {contactInfo.map((info, i) => (
-              <motion.div
-                key={info.label}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors"
-              >
-                {info.link ? (
-                  <a href={info.link} className="flex items-center gap-4 group">
-                    <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="text-primary" size={22} />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider">{info.label}</p>
-                      <p className="font-semibold text-sm">{info.value}</p>
-                    </div>
-                  </a>
-                ) : (
-                  <div className="flex items-center gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <info.icon className="text-primary" size={22} />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider">{info.label}</p>
-                      <p className="font-semibold text-sm">{info.value}</p>
-                    </div>
+            <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+
+            {contactInfo.map((info) => (
+              <Card key={info.label} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-4 flex items-center gap-4">
+                  <info.icon className="text-primary" size={24} />
+                  <div>
+                    <p className="text-sm text-muted-foreground">{info.label}</p>
+                    <p className="font-semibold">{info.value}</p>
                   </div>
-                )}
-              </motion.div>
+                </CardContent>
+              </Card>
             ))}
 
             <div className="pt-4">
-              <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider">Connect With Me</h4>
-              <div className="flex gap-3">
-                {[
-                  { icon: Github, link: 'https://github.com/Munakc1' },
-                  { icon: Linkedin, link: 'https://linkedin.com/in/muna-k-c-0739a9283' },
-                ].map((s) => (
+              <h4 className="text-lg font-semibold mb-2">Connect With Me</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social, i) => (
                   <a
-                    key={s.link}
-                    href={s.link}
+                    key={i}
+                    href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-primary/10 p-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all"
+                    className="bg-primary/10 p-3 rounded-lg hover:bg-primary/20 transition-all hover:scale-110"
                   >
-                    <s.icon size={20} />
+                    <social.icon size={24} className="text-primary" />
                   </a>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* CTA */}
+          {/* RIGHT SIDE - Work Together / Email CTA */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex items-center"
           >
-            <div className="bg-card border border-border rounded-lg p-8 w-full text-center">
-              <h3 className="text-xl font-bold mb-3">Let's Work Together</h3>
-              <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                I'm always open to new opportunities and collaborations. Feel free to reach out via email or connect with me on social media.
-              </p>
-              <a
-                href="mailto:kcm02051@gmail.com"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              >
-                <Mail size={18} />
-                Email Me Directly
-              </a>
-            </div>
+            <Card className="h-full flex items-center">
+              <CardContent className="p-8 space-y-6">
+                <h3 className="text-2xl font-bold">Let's Work Together</h3>
+                <p className="text-muted-foreground">
+                  I am always open to new opportunities and collaborations. You can email me directly or contact me on WhatsApp.
+                </p>
+
+                {/* Email Button */}
+                <a href="mailto:kcm02051@gmail.com" className="block">
+                  <Button className="w-full py-6 text-lg rounded-xl flex items-center justify-center gap-2">
+                    <Mail size={18} /> Email Me Directly
+                  </Button>
+                </a>
+
+                {/* WhatsApp Button */}
+                <a href="https://wa.me/9779822927970" target="_blank" className="block">
+                  <Button className="w-full bg-green-500 hover:bg-green-600 text-white py-6 rounded-xl flex items-center justify-center gap-2 mt-3">
+                    <FaWhatsapp /> Chat on WhatsApp
+                  </Button>
+                </a>
+               
+              </CardContent>
+            </Card>
           </motion.div>
+
         </div>
       </div>
     </section>
