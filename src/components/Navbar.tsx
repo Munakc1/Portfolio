@@ -56,10 +56,7 @@ const Navbar = () => {
               alt="Muna K.C. Logo"
               className="h-10 w-10 rounded-full object-cover border-2 border-primary"
             />
-            <span className="font-bold text-lg tracking-tight">
-              <span className="text-primary">MUNA</span>
-              <span className={isScrolled ? 'text-foreground' : 'text-white'}> K.C.</span>
-            </span>
+           
           </a>
 
           <div className="hidden md:flex items-center space-x-6">
